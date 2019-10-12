@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+    <title>Список фильмов</title>
+{% endblock %}
+
+{% block content %}
+    <h2>Список фильмов</h2>
+    {% if film_list %}
+    <ul>
+      {% for film in film_list %}
+      <li>
+        <a href="{{ film.get_absolute_url }}">{{ film.title }}</a> ({{film.year}})
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+        <p>Отсутствуют фильмы в базе данных</p>
+    {% endif %}
+{% endblock %}

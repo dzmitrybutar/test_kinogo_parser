@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+    <title>{{ film.title }}</title>
+{% endblock %}
+
+{% block content %}
+<div class="detail">
+    <h1 align="center">{{ film.title }} - {{ film.year }}</h1>
+    <p align="center"><a href="/media{{ poster }}" download="{{ film.title }}"><img src="/media{{ poster }}"></a></p>
+    <p align="center"><strong>Фильм на Kinogo:</strong> <a href="{{ film.url }}">{{ film.url }}</a></p>
+    <p align="center"><strong>Описание:</strong> {{ film.desc }}</p>
+    <p align="center"><strong>Длительность:</strong> {{ film.duration }}</p>
+    <p align="center"><strong>Жанры:</strong> {{ film.genres }}</p>
+    <p align="center"><strong>Скриншоты:</strong></p>
+    {% for screen in screens %}
+        <p><a href="/media{{ screen }}" download="{{ film.title }}"><img src="/media{{ screen }}"></a></p>
+    {% endfor %}
+</div>
+{% endblock %}
